@@ -5,5 +5,5 @@ $(function(){
 		if($this.attr('href') == current){
 			$this.parents('li').addClass('active');
 		}
-	})
+	});
 });
