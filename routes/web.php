@@ -42,6 +42,8 @@ Route::group(['prefik'=>'admin','middleware'=>['auth']], function(){
 
 	Route::group(['prefix'=>'Kategori','middleware'=>'akses.admin'], function(){
 		Route::get('/','KategoriController@daftar')->name('admin.kategori');
+		Route::get('/add','KategoriController@add')->name('admin.kategori.add');
+		Route::post('/add','KategoriController@save');
 	});
 
 });
@@ -50,4 +52,4 @@ Route::group(['prefik'=>'admin','middleware'=>['auth']], function(){
 Auth::routes();
 
 
-	Route::any('register',function(){ return abort(404); });
+	Route::any('register', function(){ return abort(404); });
