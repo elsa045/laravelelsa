@@ -3,8 +3,8 @@
 @section('content')
 <h1>Kategori</h1>
 <hr>
-@if( session('result') == 'success' )
 
+@if( session('result') == 'success' )
 <div class="alert alert-success alert-dismissible fade show">
 	<strong>Saved !</strong>Berhasil Disimpan.
 	<button type="button" class="close" data-dismiss="alert">
@@ -41,7 +41,8 @@
 	<tr>
 		<td>{{ $dt->nama_kategori }}</td>
 		<td>
-			<a href="#" class="btn btn-success btn-sm">
+			<a href="{{route('admin.kategori.edit',['id'=>$dt->id])}}" 
+			class="btn btn-success btn-sm">
 				<i class="fa fa-w fa-edit"></i>
 			</a>
 			<button type="button" class="btn btn-danger btn-sm">
