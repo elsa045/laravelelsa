@@ -21,7 +21,7 @@ class KategoriController extends Controller
     public function save(Request $req)
     {
     	\Validator::make($req->all(),[
-    			'kategori'=>'required|between:3,100|unique:kategori,nama_kategori',
+    			'kategori'=>'required|between:3,100|unique:kategori,nama_kategori'
     		])->validate();
 
     	$result = new Kategori;
@@ -57,4 +57,17 @@ class KategoriController extends Controller
             return back()->with('result','fail');
         }
     }
+    public function delete(Request $req)
+    {    
+
+    $result = Kategori::find($req->id);
+    if ($result->delete()) {
+        return back()->with('result','delete');
+
+    } else {
+        return back()->with('result','fail-delete');
+    }
+
+    }
+
 }
