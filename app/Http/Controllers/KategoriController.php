@@ -66,7 +66,7 @@ class KategoriController extends Controller
 
     } else {
         return back()->with('result','fail-delete');
-    }
+         }
 
     }
 

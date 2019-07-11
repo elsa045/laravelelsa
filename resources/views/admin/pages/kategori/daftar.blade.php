@@ -31,7 +31,7 @@
 @endif
 @if(session('result') == 'fail-delete')
 <div class="alert alert-danger alert-dismissible fade show">
-	<strong>Failde!</strong> Gagal Dihapus.
+	<strong>Failed!</strong> Gagal Dihapus.
 	<button type="button" class="close" data-dismiss="alert">
 		&times;
 	</button>
@@ -100,7 +100,7 @@
 
 				<div class="modal-body">
 					Apakah anda yakin ingin menghapusnya?
-					<form id="form-delete" method="post" action="#">
+					<form id="form-delete" method="post" action="{{ route('admin.kategori') }}">
 						{{ csrf_field() }}
 						{{ method_field('delete') }}
 						<input type="hidden" name="id" id="input-id">
@@ -127,7 +127,7 @@
 		});
 
 		$('.btn-delete').click(function(){
-			alert($('#input-id').val());
+			$('#form-delete').submit();
 		});
 	});
 </script>
