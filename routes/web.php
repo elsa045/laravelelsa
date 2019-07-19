@@ -9,7 +9,7 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+*/  
 
 Route::get('/', function () {
     return view('welcome');
@@ -40,7 +40,7 @@ Route::group(['prefik'=>'admin','middleware'=>['auth']], function(){
 
 	/* Kategori */
 
-	Route::group(['prefix'=>'Kategori','middleware'=>'akses.admin'], function(){
+	Route::group(['prefix'=>'Kategori','middleware'=>'akses.admin:asisten'], function(){
 		Route::get('/','KategoriController@daftar')->name('admin.kategori');
 		Route::delete('/','KategoriController@delete');
 		Route::get('/add','KategoriController@add')->name('admin.kategori.add');
@@ -51,7 +51,7 @@ Route::group(['prefik'=>'admin','middleware'=>['auth']], function(){
 	});
 
 	/* Produk*/
-	Route::group(['prefix'=>'produk','middleware'=>'akses.admin'], function(){
+	Route::group(['prefix'=>'produk','middleware'=>'akses.admin:asisten'], function(){
 		Route::get('/','ProdukController@daftar')->name('admin.produk');
 		Route::get('/add','ProdukController@add')->name('admin.produk.add');
 		Route::post('/add','ProdukController@save');
